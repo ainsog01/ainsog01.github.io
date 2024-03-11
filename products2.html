@@ -24,25 +24,24 @@
     $(document).ready(function() {
         $.get("https://ainsog01.github.io/products.json", function(data) 
         {
-            var json_products = document.getElementById("products");
+            var json_products = document.getElementById("products-container");
             data.forEach(function(item) 
             {
                 var product = document.createElement("div");
-                json_product.classList.add("product-item");
-                json_product.innerHTML = `
+                product.classList.add("product-item"); 
+                product.innerHTML = `
                     <h2>${item.name}</h2>
                     <p>${item.description}</p>
                     <p>${item.price}</p>
                     <p>${item.categories.join(', ')}</p> `;
 
-                products.appendChild(product);
+                json_products.appendChild(product); 
             });
         });
     });
 </script>
-
 </head>
 <body>
-    <div id="products-container"></div>
+    <div id="products-container"></div> 
 </body>
 </html>
