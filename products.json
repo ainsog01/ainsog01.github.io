@@ -9,7 +9,7 @@
         "name": "Lavender Bliss",
         "description": "Unwind and relax with the soothing aroma of lavender fields, gently kissed by the summer breeze. Let the delicate fragrance transport you to a tranquil oasis where your senses are enveloped in serenity and bliss.",
         "price": "$12.99",
-        "categories": ["summer", "12oz", "best seller"]
+        "categories": ["summer", "best seller", "12oz"]
     },
     { 
         "name": "Cozy Cabin",
@@ -21,7 +21,7 @@
         "name": "Vanilla Bean",
         "description": "Indulge in the comforting aroma of freshly scraped vanilla beans, enveloping you in a warm and inviting embrace reminiscent of homemade desserts and sweet memories.",
         "price": "$10.50",
-        "categories": ["summer", "8oz", "best seller"]
+        "categories": ["summer", "best seller", "8oz"]
     },
     { 
         "name": "Ocean Breeze",
