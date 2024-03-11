@@ -22,7 +22,7 @@
 
 <script>
     $(document).ready(function() {
-        $.get("https://anthonyinsogna.github.github.io/products.json", function(data) 
+        $.get("https://ainsog01.github.io/products.json", function(data) 
         {
             var json_products = document.getElementById("products");
             data.forEach(function(item) 
@@ -40,42 +40,7 @@
         });
     });
 </script>
-<!-- 
-<script>
-$(document).ready(function() {
-    $.get("https://ainsog01.github.github.io/products.json", function(data) {
-    var json_products = document.getElementById("prodcuts");
-    data.forEach(function(item)) {
-        var product = document.createElement("div");
-        product.classList.add("product-item");
-        product.innerHTML = `
-                <h2>${item.name}</h2>
-                <p>${item.description}</p>
-                <p>${item.price}</p>
-                <p>${item.categories.join(', ')}</p>
-                `;
 
-                products.appendChild(product);
-
-    }
-    });
-}); -->
-<!-- // console.log(json_data);
-function displayProducts(productsData) {
-        var displayDiv = document.getElementById("products-container");
-        productsData.forEach(function(product) {
-            var productDiv = document.createElement("div");
-            productDiv.classList.add("product-container");
-            productDiv.innerHTML = `
-                <div class="product-name">${product.name}</div>
-                <div class="product-description">${product.description}</div>
-                <div class="product-price">Price: ${product.price}</div>
-                <div class="product-categories">Categories: ${product.categories.join(", ")}</div>
-            `;
-            displayDiv.appendChild(productDiv);
-        });
-    }
-</script> -->
 </head>
 <body>
     <div id="products-container"></div>
