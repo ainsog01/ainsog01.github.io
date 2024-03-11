@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Products</title>
+<style>
+    .product-container {
+        border: 1px solid #ddd;
+        padding: 10px;
+        margin-bottom: 10px;
+        background-color: #f9f9f9;
+    }
+    .product-name {
+        font-weight: bold;
+    }
+    .product-price {
+        font-style: italic;
+    }
+</style>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+        $.get("https://anthonyinsogna.github.github.io/products.json", function(data) 
+        {
+            var json_products = document.getElementById("products");
+            data.forEach(function(item) 
+            {
+                var product = document.createElement("div");
+                json_product.classList.add("product-item");
+                json_product.innerHTML = `
+                    <h2>${item.name}</h2>
+                    <p>${item.description}</p>
+                    <p>${item.price}</p>
+                    <p>${item.categories.join(', ')}</p> `;
+
+                products.appendChild(product);
+            });
+        });
+    });
+</script>
+<!-- 
+<script>
+$(document).ready(function() {
+    $.get("https://ainsog01.github.github.io/products.json", function(data) {
+    var json_products = document.getElementById("prodcuts");
+    data.forEach(function(item)) {
+        var product = document.createElement("div");
+        product.classList.add("product-item");
+        product.innerHTML = `
+                <h2>${item.name}</h2>
+                <p>${item.description}</p>
+                <p>${item.price}</p>
+                <p>${item.categories.join(', ')}</p>
+                `;
+
+                products.appendChild(product);
+
+    }
+    });
+}); -->
+<!-- // console.log(json_data);
+function displayProducts(productsData) {
+        var displayDiv = document.getElementById("products-container");
+        productsData.forEach(function(product) {
+            var productDiv = document.createElement("div");
+            productDiv.classList.add("product-container");
+            productDiv.innerHTML = `
+                <div class="product-name">${product.name}</div>
+                <div class="product-description">${product.description}</div>
+                <div class="product-price">Price: ${product.price}</div>
+                <div class="product-categories">Categories: ${product.categories.join(", ")}</div>
+            `;
+            displayDiv.appendChild(productDiv);
+        });
+    }
+</script> -->
+</head>
+<body>
+    <div id="products-container"></div>
+</body>
+</html>
