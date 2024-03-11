@@ -11,8 +11,9 @@
         margin: 0;
         padding: 0;
         display: flex;
-        justify-content: center;
+        flex-direction: column;
         align-items: center;
+        justify-content: center;
         height: 100vh;
     }
 
@@ -91,14 +92,14 @@
             data.forEach(function(item) 
             {
                 var product = document.createElement("div");
-                product.classList.add("product-item"); 
+                product.classList.add("product-item");
                 product.innerHTML = `
                     <h2>${item.name}</h2>
                     <p>${item.description}</p>
                     <p>${item.price}</p>
                     <p>${item.categories.join(', ')}</p> `;
 
-                json_products.appendChild(product); 
+                json_products.appendChild(product);
             });
         });
     });
