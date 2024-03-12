@@ -1,140 +1,70 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="utf-8">
-<link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
 <title>Anthony's Candles</title>
-</head>
-<body>
-    <div id="candle_shop">Anthony's Candles</div>
-    <div class="buttons">
-        <select id="dropdown_menu">
-            <option value="">Select category</option>
-        </select> &nbsp;
-        <button id="button_filter">Filter</button> 
-    </div>
-    <div id="products"></div>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            $.get("products.json", function(data) {
-                var products = $("#products");
-
-                data.forEach(function(item) {
-                    var product = $("<div class='product'></div>");
-                    product.html(`
-                        <div id="name">${item.name}</div>
-                        <div id="description">${item.description}</div>
-                        <div id="price">${item.price}</div>
-                        <div id="category">${item.categories.join(', ')}</div>
-                    `);
-                    products.append(product);
-                });
-
-                var dropdown = $("#dropdown_menu");
-                var categories = [];
-
-                data.forEach(function(item) {
-                    item.categories.forEach(function(category) {
-                        if (!categories.includes(category)) {
-                            categories.push(category);
-                            dropdown.append(`<option value="${category}">${category}</option>`);
-                        }
-                    });
-                });
-
-                $("#button_filter").click(function() {
-                    var category = $("#dropdown_menu").val();
-                    $(".product").hide();
-
-                    if (category === "") {
-                        $(".product").show();
-                    } else {
-                        $(".product").each(function() {
-                            var productCategories = $(this).find("#category").text().split(', ');
-                            if (productCategories.includes(category)) {
-                                $(this).show();
-                            }
-                        });
-                    }
-                });
-            });
-        });
-    </script>
-</body>
-</html>
-
-
-
-
-<!-- <!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
-<title>Anthony's Candles</title>
-</head>
-<body>
-    <div id="candle_shop">Anthony's Candles</div>
-     was cafe name 
-    <div class="buttons">
-    <select id="dropdown_menu">
-    <option value="">categories</option>
-        </select> &nbsp;
-        <button id="button_filter">filter</button> 
-    </div>
-    <div id="products"></div>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-</body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <script>
     $(document).ready(function() {
-        $.get("https://anthonyinsogna.github.io/products.json", function(data) {
-            var products = document.getElementById("products");
+        $.get("https://ainsog01.github.io/products.json", function(data_json) {
+            var products = $("#products");
 
-            data.forEach(function(item) {
-                var product = document.createElement("div");
-                product.classList.add("product");
-                product.innerHTML = `
+            data_json.forEach(function(item) {
+            var product = $("<div class='product'></div>");
+            product.html(`
                 <div id="name">${item.name}</div>
-                <div id="descitpion">${item.description}</div>
+                <div id="description">${item.description}</div>
                 <div id="price">${item.price}</div>
-                <div id="category">${item.categories.join(', ')}</div> `;
-
-                products.appendChild(product);
+                <div id="category">${item.categories.join(', ')}</div>
+            `);
+            products.append(product);
             });
 
-            var dropdown = $("#dropdown_menu");
-            var categories = [];
+        var dropdown = $("#dropdown_menu");
+        var categories = [];
 
-            data.forEach(function(item) {
-                item.categories.forEach(function(category) {
+        data_json.forEach(function(item) {
+            item.categories.forEach(function(category) {
                 if (!categories.includes(category)) {
                     categories.push(category);
-                        dropdown.append(`<option value="${category}">${category}</option>`);
-                    }
-                });
-            });
-
-            $("#button_filter").click(function() {
-                var category = $("#dropdown_menu").val();
-                $(".product").hide();
-
-                if (category === "") {
-                    $(".product").show();
-                } else {
-                    if (category === "vegan") {
-                        $(".product").filter(function() {
-                            return !$(this).find("#categ").text().includes("non-vegan");
-                        }).show();
-                    } else {
-                        $(".product").filter(function() {
-                            return $(this).find("#categ").text().includes(category);
-                        }).show();
-                    }
+                    dropdown.append(`<option value="${category}">${category}</option>`);
                 }
             });
         });
+
+        $("#button_filter").click(function() {
+            var category = $("#dropdown_menu").val();
+            $(".product").hide();
+
+            if (category === "") {
+                $(".product").show();
+            } else {
+                $(".product").each(function() {
+                    var categories_for_products = $(this).find("#category").text().split(', ');
+                    if (categories_for_products.includes(category)) {
+                        $(this).show();
+                    }
+                });
+            }
+        });
+        });
     });
 </script>
-</html> -->
+</head>
+<body>
+
+    <div id="candle_shop">Anthony's Candles</div>
+    <div class="buttons">
+    <select id="dropdown_menu">
+        <option value="">Select category</option>
+    </select> &nbsp;
+    <button id="button_filter">Filter</button> 
+    </div>
+    <div id="products"></div>
+</body>
+</html>
