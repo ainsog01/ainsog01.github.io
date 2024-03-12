@@ -1,0 +1,54 @@
+body {
+    font-family: 'Josefin Sans', sans-serif;
+    background-color: #F7F1DF;
+}
+
+#candle_shop {
+    font-size: 24px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.buttons {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#dropdown_menu {
+    padding: 5px;
+}
+
+#button_filter {
+    padding: 5px 10px;
+    background-color: #c6d7b9;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#products {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.product {
+    border: 2px solid #c6d7b9;
+    padding: 10px;
+    margin: 10px 0;
+    max-width: 700px;
+    width: 100%;
+    border-radius: 10px;
+    background-color: #ffffff;
+}
+
+#name {
+    font-weight: bold;
+}
+
+#price {
+    font-style: italic;
+}
+
+#category {
+    margin-top: 5px;
+}
