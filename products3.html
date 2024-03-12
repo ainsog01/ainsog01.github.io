@@ -14,13 +14,13 @@
         $.get("https://ainsog01.github.io/products.json", function(data_json) {
             var products = $("#products");
 
-            data_json.forEach(function(item) {
+            data_json.forEach(function(object) {
             var product = $("<div class='product'></div>");
             product.html(`
-                <div id="name">${item.name}</div>
-                <div id="description">${item.description}</div>
-                <div id="price">${item.price}</div>
-                <div id="category">${item.categories.join(', ')}</div>
+                <div id="name">${object.name}</div>
+                <div id="description">${object.description}</div>
+                <div id="price">${object.price}</div>
+                <div id="category">${object.categories.join(', ')}</div>
             `);
             products.append(product);
             });
@@ -28,8 +28,8 @@
         var dropdown = $("#dropdown_menu");
         var categories = [];
 
-        data_json.forEach(function(item) {
-            item.categories.forEach(function(category) {
+        data_json.forEach(function(object) {
+            object.categories.forEach(function(category) {
                 if (!categories.includes(category)) {
                     categories.push(category);
                     dropdown.append(`<option value="${category}">${category}</option>`);
