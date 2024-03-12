@@ -2,55 +2,37 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Products</title>
-<style>
-    .product-container {
-        border: 1px solid #ddd;
-        padding: 10px;
-        margin-bottom: 10px;
-        background-color: #f9f9f9;
-    }
-    .product-name {
-        font-weight: bold;
-    }
-    .product-price {
-        font-style: italic;
-    }
-
-    .product-item {
-        border: 2px solid #c6d7b9;
-        padding: 10px; 
-        margin: 0 auto 20px; 
-        max-width: 700px; 
-        width: 100%; 
-        border-radius: 10px;
-    }
-</style>
+<title>Anthony's Candles</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="stylesheet.css">
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <script>
     $(document).ready(function() {
-        $.get("https://ainsog01.github.io/products.json", function(data) 
+        $.get("https://ainsog01.github.io/products.json", function(data_json) 
         {
-            var json_products = document.getElementById("products-container"); // Changed variable name
-            data.forEach(function(item) 
+            var json_products = document.getElementById("products-container");
+            data_json.forEach(function(item) 
             {
                 var product = document.createElement("div");
-                product.classList.add("product-item"); // Corrected variable name
+                product.classList.add("product-item");
                 product.innerHTML = `
                     <h2>${item.name}</h2>
-                    <p>${item.description}</p>
-                    <p>${item.price}</p>
-                    <p>${item.categories.join(', ')}</p> `;
+                    <h3>${item.description}</h3>
+                    <h3>${item.price}</h3>
+                    <h3>${item.categories.join(', ')}</h3> `;
 
-                json_products.appendChild(product); // Changed variable name
+                json_products.appendChild(product); 
             });
         });
     });
 </script>
 </head>
 <body>
-    <div id="products-container"></div> <!-- Corrected id name -->
+    <h1>Anthony's Candles</h1>
+    <div id="products-container"></div> 
 </body>
 </html>
